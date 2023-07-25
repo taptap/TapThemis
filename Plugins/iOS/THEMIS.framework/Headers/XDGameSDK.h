@@ -9,12 +9,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+
 //typedef void (*ptrNonStaticFun_p)(float*,float*);
+typedef void (*crashBlock)(int signo,long si_addr);
+typedef void (*onExitOrKillBlock)(void);
+typedef void (*infoReceiverFunc)(uint64_t,uint64_t);
 
-//typedef void (^crashBlock)(int si_code,void* si_addr);
 
-typedef void (*onInfoReceiverFunc)(uint64_t,uint64_t);
 
+
+
+// "killall -9 ProcessName"
 @interface XDGameSDK : NSObject
 
 /**
@@ -52,22 +62,46 @@ typedef void (*onInfoReceiverFunc)(uint64_t,uint64_t);
  */
 +(void)customData:(NSString*)key value:(NSString*)value;
 
+
+// 包接口
++(const char*)getHeartbeat:(uint32_t)idx random:(uint64_t)random;
+
 /**
- *  自定义标签，可为自定义json设置标签，
- *  @param message 为自定义消息的标题头
+ * 信回调接口
  */
-+(void)addMessage:(NSString*)message;
-
-
-+(void)onInfoReceiver:(onInfoReceiverFunc)func_p;
-
++(void)onInfoReceiver:(infoReceiverFunc)func_p;
 
 +(void)TMInit:(uint64_t)p;
-
-+(void)TMCR:(const char *)SceneID on_off:(bool)on_off;
++(void)TMCR:(NSString *)SceneID on_off:(bool)on_off;
 
 +(NSString*)vsrsion;
 
+// 提供一个自定义的异常上报接口
++(void)ReportCustomException:(NSString*)name reason:(NSString*)reason message:(NSString*)message isQuitApp:(BOOL)isQuitApp;
+
++(void)ReportCustomExceptionEx:(NSString*)name reason:(NSString*)reason message:(NSString*)message isQuitApp:(BOOL)isQuitApp extraMessage:(const char*)extraMessage extraLen:(uint32_t)extraLen;
+
++(void)ReportExceptionWithType:(NSString*)name reason:(NSString*)reason message:(NSString*)message exception_type:(int)exception_type isQuitApp:(BOOL)isQuitApp;
+
++(int32_t)getTOD:(char*)buffer max_size:(uint32_t)max_size;
+
+
+// 所有回调函数设置函数
++(void)SetNativeCallback:(long)themis_state_cb extra_message_cb:(long)extra_message_cb;
+
++(void)SetExceptionCallback:(long)message_cb;
+
++(void)SetOOMCallback:(long)message_cb;
+
+
+
+
+
+
 @end
 
+
+#ifdef __cplusplus
+}
+#endif
 NS_ASSUME_NONNULL_END

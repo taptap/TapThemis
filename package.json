@@ -2,10 +2,10 @@
   "name": "com.taptap.tds.themis",
   "displayName": "TapTap Themis",
   "description": "TapTap Develop Service",
-  "version": "3.16.0",
+  "version": "3.1.7-5",
   "unity": "2018.3",
   "license": "MIT",
   "dependencies": {
-    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.16.0"
+    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.1.7-5"
   }
 }
