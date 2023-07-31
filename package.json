@@ -1,8 +1,28 @@
 {
   "name": "com.taptap.tds.themis",
-  "displayName": "TapTap Themis",
-  "description": "TapTap Develop Service",
   "version": "3.1.7-6",
+  "displayName": "TapTap Themis",
+  "description": "Themis the object!",
   "unity": "2018.3",
   "license": "MIT",
+  "licensesUrl": "许可说明链接",
+  "documentationUrl": "https://git.xindong.com/themis/themis_sdk_upm",
+  "keywords": [
+    "safearea"
+  ],
+  "author": {
+    "name": "su10",
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.xindong.com/themis/themis_sdk_upm.git"
+  },
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "Demo Scene",
+      "path": ""
+    }
+  ]
 }
