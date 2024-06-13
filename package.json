@@ -1,11 +1,28 @@
 {
   "name": "com.taptap.tds.themis",
+  "version": "3.2.3-3",
   "displayName": "TapTap Themis",
-  "description": "TapTap Develop Service",
-  "version": "3.16.0",
+  "description": "Themis the object!",
   "unity": "2018.3",
   "license": "MIT",
-  "dependencies": {
-    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.16.0"
-  }
+  "licensesUrl": "许可说明链接",
+  "documentationUrl": "https://github.com/taptap/TapThemis-Unity",
+  "keywords": [
+    "safearea"
+  ],
+  "author": {
+    "name": "su10",
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taptap/TapThemis-Unity.git"
+  },
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "Demo Scene",
+      "path": ""
+    }
+  ]
 }
